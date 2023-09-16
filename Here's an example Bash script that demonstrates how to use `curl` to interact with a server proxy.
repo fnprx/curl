@@ -1,0 +1,44 @@
+# ProxyCurl Script
+
+## Description
+
+This script uses `curl` to send an HTTP GET request via a server proxy. It's useful for testing proxy servers, scraping data, or any other tasks where you might need to interact with a web service through a proxy.
+
+## Requirements
+
+- Bash
+- Curl
+
+## Setup
+
+1. Replace the proxy details with your own settings:
+
+    ```bash
+    PROXY_HOST="your_proxy_host_here"  # Proxy server hostname or IP
+    PROXY_PORT="your_proxy_port_here"  # Proxy server port
+    PROXY_USER="your_username_here"    # Username for proxy authentication
+    PROXY_PASS="your_password_here"    # Password for proxy authentication
+    ```
+
+2. Set the URL you want to test against:
+
+    ```bash
+    TEST_URL="http://example.com"
+    ```
+
+## Script
+
+```bash
+#!/bin/bash
+
+# Proxy details. Replace with your settings.
+PROXY_HOST="your_proxy_host_here"
+PROXY_PORT="your_proxy_port_here"
+PROXY_USER="your_username_here"
+PROXY_PASS="your_password_here"
+
+# URL for test GET request
+TEST_URL="http://example.com"
+
+# Execute the GET request via the proxy
+curl -x http://$PROXY_HOST:$PROXY_PORT --proxy-anyauth --proxy-user $PROXY_USER:$PROXY_PASS $TEST_URL
